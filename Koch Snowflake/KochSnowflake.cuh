@@ -1,0 +1,1 @@
+void startKochSnowflake(int argc, char** argv);
