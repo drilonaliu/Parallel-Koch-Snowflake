@@ -109,7 +109,7 @@ iterations, the number of active threads will rise exponentially:
 
 3.  Iteration 2: Threads 4-15 are active. These threads take the segments from the previous iteration and construct equilateral triangles on them.
 
-4.  Iteration n: Threads $4^(n-1)$ - $4^n$ are active. These threads take the segments from the previous iteration and construct equilateral triangles on them
+4.  Iteration n: Threads $4^{(n-1)}$ - $4^n$ are active. These threads take the segments from the previous iteration and construct equilateral triangles on them
 
 
 
