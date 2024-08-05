@@ -118,7 +118,7 @@ The dashed lines indicate that the threads are waiting for the next iteration to
 
 
 
-## Kerneli
+## Kernel
 
 The following kernel generates the fractal through parallel computation. Initially, the thread with index 0 handles the initializing triangle.
 For each iteration, threads within the interval start_at to end_at are active and compute the necessary points to form the Koch curve. 
