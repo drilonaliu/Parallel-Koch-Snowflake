@@ -21,26 +21,19 @@ The initial iterations of this fractal are shown below.
 ## Construction of the equilateral triangle
 
 Let the points $A(x_1, y_1)$ and $B(x_2, y_2)$ be given. We need to find the points
-$C$, $D$, $E$ such that 
-$\overrightarrow{AC} = \frac{1}{2} \overrightarrow{CB}$,
-$\overrightarrow{DB}=\frac{1}{2}\overrightarrow{AD}$, so that 
-$\triangle CDE$ is equilateral
+$C$, $D$, $E$ such that  $\overrightarrow{AC}=\frac{1}{2}\overrightarrow{CB}$ ,
+$\overrightarrow{DB}=\frac{1}{2}\overrightarrow{AD}$, so that $\triangle CDE$ is equilateral.
 
 <p>
    <img src="images/koch_5.png">
 </p>
 
 
-From the equation $ \overrightarrow{AC} = \frac{1}{2}\overrightarrow{CB} $,
+From the equation $\overrightarrow{AC} = \frac{1}{2}\overrightarrow{CB}$,
 we get
 
 $$\left( c_1 - x_1, c_2 - y_1 \right) = \frac{1}{2} \left( x_2 - c_1, y_2 - c_2 \right)$$
 
-<p>
-   <img src="images/koch_6.png">
-</p>
-
-\
 
 By equating the corresponding coordinates of the ordered pairs on both sides of the equation, we obtain
 
@@ -48,11 +41,12 @@ $$(c_1 - x_1) = \frac{1}{2} (x_2 - c_1)$$
 $$(c_2 - y_1) = \frac{1}{2} (y_2 - c_2)$$
 
 And we get the coordinates of the point C.
+
 $C = (c_1, c_2) = \left( \frac{x_2 - 2x_1}{3}, \frac{y_2 - 2y_1}{3} \right)$.
 
 In an anologous way, we can find the coordinates of the point $D$.
 
-\
+
 Triangle $\triangle CDE$ is equilateral and consequently each angle of it is 60 deegres. It is sufficient to rotate the point $D$ around the point $C$
 for 60 deegres to obtain the point $E$.
 
@@ -101,6 +95,11 @@ This array contains all the edges generated for each iteration, and its size is:
 
 $$h(n) = f(0) + f(1) + \cdots + f(n-1) = \sum_{i=0}^{n-1} f(i) = 3 \sum_{i=0}^{n-1} 4^i = 4^n - 1$$
 
+<p>
+   <img src="images/koch_6.png">
+</p>
+
+\
 For each iteration there will be $3 \times 4^n$ active threads. With the increase of
 iterations, the number of active threads will rise exponentially:
 
@@ -113,17 +112,9 @@ iterations, the number of active threads will rise exponentially:
 4.  Iteration n: Threads $4^(n-1)$ - $4^n$ are active. These threads take the segments from the previous iteration and construct equilateral triangles on them
 
 
-<p>
-   <img src="images/koch_7.png">
-</p>
 
 This hierarchical approach ensures that each iteration fully utilizes the power of parallel processing. The figure below visualizes this thread process. 
 The dashed lines indicate that the threads are waiting for the next iteration to become active.
-
-
-<p>
-   <img src="images/koch_8.png">
-</p>
 
 
 
@@ -212,5 +203,13 @@ Table below compares the excecution time in microseconds of the fractal between 
 | 13        | 9075431  | 3123194   |
 
 
-[\[fig:koch_graph\]](#fig:koch_graph){reference-type="ref"
-reference="fig:koch_graph"}.
+
+<p>
+   <img src="images/koch_7.png">
+</p>
+
+
+<p>
+   <img src="images/koch_8.png">
+</p>
+
